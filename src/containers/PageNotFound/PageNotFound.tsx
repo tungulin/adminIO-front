@@ -10,7 +10,7 @@ const contentStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: "calc(100vh - 140px)",
+    minHeight: "calc(100vh - 130px)",
     lineHeight: '120px',
 };
 

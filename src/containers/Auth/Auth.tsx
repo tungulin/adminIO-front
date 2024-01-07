@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { Button, Card, Layout, Space, Typography } from 'antd';
 import Fields from 'components/Fields';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -11,7 +12,7 @@ const contentStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: "calc(100vh - 140px)",
+    minHeight: "calc(100vh - 130px)",
     lineHeight: '120px',
 };
 
@@ -22,53 +23,29 @@ const cardStyle: React.CSSProperties = {
 
 
 export const Auth: FC = () => {
+    const dispatch = useDispatch()
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm({
-        mode: "onSubmit",
-        shouldUnregister: true,
-    });
+    const methodsForm = useForm({ mode: "onSubmit" });
 
 
     const onLogin = (data: any) => {
-        console.log('data', data);
+        console.log('data', data)
     }
 
     return (
         <Content style={contentStyle} >
             <Card style={cardStyle}>
-                <form onSubmit={handleSubmit(onLogin)}>
-                    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-                        <>
-                            <Title level={2}>Sign in</Title>
-                            <Fields.input
-                                control={control}
-                                placeholder='Server'
-                                required
-                                label='server'
-                                error={errors.server} />
-                            <Fields.input
-                                control={control}
-                                placeholder='Username'
-                                required
-                                label='username'
-                                error={errors.username} />
-                            <Fields.input
-                                control={control}
-                                placeholder='Password'
-                                required
-                                label='password'
-                                error={errors.password} />
-                            <Fields.input
-                                control={control}
-                                placeholder='Database'
-                                required
-                                label='database'
-                                error={errors.database} />
-                            <Button block key="submit" htmlType="submit" type='primary'>Sign in</Button>
-                        </>
-                    </Space>
-                </form>
+                <FormProvider {...methodsForm}>
+                    <form onSubmit={methodsForm.handleSubmit(onLogin)}>
+                        <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+                            <Title level={2}>Connect</Title>
+                            <Fields.input title='Login' placeholder='your login...' label='login' />
+                            <Fields.input title='Password' placeholder='your password...' label='password' />
+                            <Button block htmlType="submit" type='primary'>Sign in</Button>
+                        </Space>
+                    </form>
+                </FormProvider>
             </Card>
-        </Content>
+        </Content >
     )
 }

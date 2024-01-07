@@ -1,22 +1,10 @@
-import {
-    FieldValues,
-    FieldError,
-    FieldErrors,
-    UseFormRegister,
-    Control,
-} from "react-hook-form";
+import { InputProps } from 'antd';
 
 
 export interface IField {
-    error: FieldError | FieldErrors | undefined
-    defaultValue?: { value: string | number, name: string }
-    label: string,
-    placeholder: string
-    title?: string,
+    placeholder?: string,
     subTitle?: string,
-    required?: boolean,
+    label: string
 }
 
-export interface IInputField extends IField {
-    control: Control<FieldValues>,
-}
+export interface IInputField extends IField, InputProps { }

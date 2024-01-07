@@ -10,7 +10,7 @@ export const defaultSlice = createSlice({
     initialState,
     reducers: {
         toogleTheme: (state) => {
-            state.theme === 'default' ? state.theme = 'dark' : state.theme = 'default'
+            state.theme === 'light' ? state.theme = 'dark' : state.theme = 'light'
             localStorage.setItem('theme', state.theme)
         },
         // setCountry: (state, action: PayloadAction<ICountry>) => { state.country = action.payload },
