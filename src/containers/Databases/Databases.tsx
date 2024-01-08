@@ -6,12 +6,8 @@ const { Content, Sider } = Layout;
 const { Title } = Typography;
 
 const contentStyle: React.CSSProperties = {
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     minHeight: "calc(100vh - 120px)",
-    lineHeight: '120px',
+    padding: 20
 };
 
 export const Databases: FC = () => {
@@ -19,7 +15,7 @@ export const Databases: FC = () => {
 
     return (
         <Content style={contentStyle} >
-            <Title>Databases</Title>
+            <Title level={2}>Databases</Title>
         </Content >
     )
 }

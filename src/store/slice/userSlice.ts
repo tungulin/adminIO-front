@@ -15,7 +15,7 @@ import { IUserSliceState } from './ISlice'
 // );
 
 const initialState: IUserSliceState = {
-    isAuth: false,
+    isAuth: true,
     info: null
 }
 

@@ -1,31 +1,24 @@
 import React, { FC } from 'react'
 import { Menu, Layout, Typography } from 'antd';
 import { useDispatch } from 'react-redux';
-import { toogleTheme } from 'store/slice/defaultSlice';
-
 import type { MenuProps } from 'antd';
 import { useNavigate } from 'react-router-dom';
-type MenuItem = Required<MenuProps>['items'][number];
 
-const { Header, Sider } = Layout;
-const { Title } = Typography;
-
-const siderStyle: React.CSSProperties = {
-    overflow: 'auto',
-    position: 'fixed',
-    left: 0,
-    top: 60,
-    bottom: 60
-}
+const { Sider } = Layout;
 
 const itemsMenu = [
     {
         key: '1',
+        label: 'Main',
+        target: '/main'
+    },
+    {
+        key: '2',
         label: 'Docker',
         target: '/docker'
     },
     {
-        key: '2',
+        key: '3',
         label: 'Databases',
         target: '/databases'
     },
@@ -37,18 +30,16 @@ export const Sidebar: FC = () => {
 
     const onClick: MenuProps['onClick'] = (e) => {
         const selectedItem = itemsMenu.find((item) => item?.key === e.key)
-        if(selectedItem) navigate(selectedItem.target)
+        if (selectedItem) navigate(selectedItem.target)
     }
 
     return (
-        <Layout>
-            <Sider style={siderStyle}>
-                <Menu
-                    onClick={onClick}
-                    mode="inline"
-                    items={itemsMenu}
-                />
-            </Sider >
-        </Layout>
+        <Sider>
+            <Menu
+                onClick={onClick}
+                mode="inline"
+                items={itemsMenu}
+            />
+        </Sider >
     )
 }

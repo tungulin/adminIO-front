@@ -1,30 +1,21 @@
 import React, { FC } from 'react'
-import { Button, Card, Layout, Space, Typography } from 'antd';
+import { Layout, Typography } from 'antd';
 import { useDispatch } from 'react-redux';
 
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 const { Title } = Typography;
 
 const contentStyle: React.CSSProperties = {
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     minHeight: "calc(100vh - 120px)",
-    lineHeight: '120px',
+    padding: 20
 };
-
-const cardStyle: React.CSSProperties = {
-    width: 500,
-    height: 400,
-};
-
 
 export const Main: FC = () => {
     const dispatch = useDispatch()
 
     return (
         <Content style={contentStyle} >
+            <Title level={2}>Main</Title>
         </Content >
     )
 }

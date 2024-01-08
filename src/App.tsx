@@ -47,15 +47,17 @@ const App: FC = () => {
       {contextHolder}
       <Layout>
         <Navbar />
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Auth />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/docker" element={<Docker />} />
-          <Route path="/databases" element={<Databases />} />
-          <Route path="*" element={<PageNotFound />} />
-          {/* <Route path="/item/:id" element={<ProtectedRoute><ItemPage /></ProtectedRoute>} /> */}
-        </Routes>
+        <Layout>
+          {isAuth && <Sidebar />}
+          <Routes>
+            <Route path="/" element={<Auth />} />
+            <Route path="/main" element={<Main />} />
+            <Route path="/docker" element={<Docker />} />
+            <Route path="/databases" element={<Databases />} />
+            <Route path="*" element={<PageNotFound />} />
+            {/* <Route path="/item/:id" element={<ProtectedRoute><ItemPage /></ProtectedRoute>} /> */}
+          </Routes>
+        </Layout>
         <Footer />
       </Layout>
     </ConfigProvider>
