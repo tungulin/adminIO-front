@@ -14,17 +14,12 @@ const contentStyle: React.CSSProperties = {
     lineHeight: '120px',
 };
 
-const cardStyle: React.CSSProperties = {
-    width: 500,
-    height: 400,
-};
-
-
-export const Main: FC = () => {
+export const Docker: FC = () => {
     const dispatch = useDispatch()
 
     return (
         <Content style={contentStyle} >
+            <Title>Docker</Title>
         </Content >
     )
 }

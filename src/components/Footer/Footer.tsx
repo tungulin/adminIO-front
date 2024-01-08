@@ -6,7 +6,7 @@ const { Footer: FooterAntd } = Layout;
 
 export const Footer: FC = () => {
     return (
-        <FooterAntd style={{ height: 65, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <FooterAntd style={{ height: 60, padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text>@tungulin</Text>
         </FooterAntd >
     )

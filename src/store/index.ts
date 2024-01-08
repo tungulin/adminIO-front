@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { defaultSlice } from './slice/defaultSlice'
-import { databaseSlice } from './slice/database'
-// import { defaultSlice } from './slice/defaultSlice'
+import { userSlice } from './slice/userSlice'
 
 export const store = configureStore({
     reducer: {
         default: defaultSlice.reducer,
-        database: databaseSlice.reducer
+        user: userSlice.reducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({
         serializableCheck: false

@@ -15,7 +15,7 @@ export const Navbar: FC = () => {
     const onClickTheme = () => dispatch(toogleTheme())
 
     return (
-        <Header style={{ height: 65, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Header style={{ height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Title level={3} style={{ margin: 0 }}>AdminIO</Title>
             <Space>
                 <Button onClick={onClickTheme} icon={<BulbFilled />} />
